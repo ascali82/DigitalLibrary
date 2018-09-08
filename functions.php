@@ -32,4 +32,12 @@ function theme_enqueue_scripts() {
 
         }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
+
+
+/**
+ * Caricamento file esterni
+ */
+
+// Registrazione della classe wp-bootstrap-navwalker per la customizzazione del menu principale
+require_once('inc/wp-bootstrap-navwalker.php')
 ?>
