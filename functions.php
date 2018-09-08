@@ -7,6 +7,37 @@
  * @package Digital Library
  */
 
+if ( ! function_exists( '_dl_setup' ) ) :
+	/**
+	 * Inizializza le funzionalità di default del tema e registra il supporto per varie funzionalità di Wordpress.
+	 *
+	 * Questa funzione è agganciata a after_setup_theme hook, che si avvia prima dell'init hook.
+	 */
+	function _dl_setup() {
+		add_theme_support( 'automatic-feed-links' );
+		// Aggiunge il supporto per la gestione automatica da parte di Wordpress per il titolo
+		add_theme_support( 'title-tag' );
+		// Aggiunge il supporto per le Thumbnails per post e pagine
+        // @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		add_theme_support( 'post-thumbnails' );
+		// Registrazione del menu di navigazione principale.
+		register_nav_menus( array(
+			'menu-1' => esc_html__( 'Primary', '_dl' ),
+		) );
+		// Aggiunge il supporto per HTML5 per search form e commenti modificando l'output originario
+		add_theme_support( 'html5', array(
+			'search-form',
+			'gallery',
+			'caption',
+		) );
+		// Aggiunge il supporto per il selective refresh dei widget.
+		add_theme_support( 'customize-selective-refresh-widgets' );
+        // Aggiunge il supporto per i Post format
+        add_theme_support( 'post-formats', array( 'status', 'gallery', 'link' ) );
+	}
+endif;
+add_action( 'after_setup_theme', '_dl_setup' );
+
 /**
  * Stili e script
  */
