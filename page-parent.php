@@ -17,7 +17,7 @@ get_header();
                         <!--Subtitle-->
                         <?php
                             echo '<p class="mt-4"><strong>';
-                            echo get_excerpt(280);
+                            echo the_excerpt();
                             echo '</strong></p>';
                             ?>
                     </div><!--Jumbotron-->                        

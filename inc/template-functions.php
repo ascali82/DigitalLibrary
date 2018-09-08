@@ -35,3 +35,63 @@ function data_copyright() {
   }
   return $output;
   }
+
+// Funzioni relative all'excerpt
+
+    // Rimozione del excerpt box standard
+function oz_remove_normal_excerpt() {
+    remove_meta_box( 'postexcerpt' , 'post' , 'normal' );
+}
+add_action( 'admin_menu' , 'oz_remove_normal_excerpt' );
+
+    // Aggiunta del nuovo excerpt box
+function oz_add_excerpt_meta_box( $post_type ) {
+    if ( in_array( $post_type, array( 'post', 'page' ) ) ) {
+        add_meta_box(
+            'oz_postexcerpt',
+            __( 'Riassunto', '_dl' ),
+            'post_excerpt_meta_box',
+            $post_type,
+            'after_title',
+            'high'
+        );
+    }
+}
+add_action( 'add_meta_boxes', 'oz_add_excerpt_meta_box' );
+
+    // Posizionamento del nuovo excerpt box sotto il titolo del post o della pagina
+function oz_run_after_title_meta_boxes() {
+    global $post, $wp_meta_boxes;
+    # Output the `below_title` meta boxes:
+    do_meta_boxes( get_current_screen(), 'after_title', $post );
+}
+add_action( 'edit_form_after_title', 'oz_run_after_title_meta_boxes' );
+
+    // Aggiunge l'obbligo di inserimento di un excerpt per post o pagine
+function mandatory_excerpt($data) {
+  $excerpt = $data['post_excerpt'];
+  if (empty($excerpt)) {
+    if ($data['post_status'] === 'publish') {
+      add_filter('redirect_post_location', 'excerpt_error_message_redirect', '99');
+    }
+    $data['post_status'] = 'draft';
+  }
+  return $data;
+}
+add_filter('wp_insert_post_data', 'mandatory_excerpt');
+function excerpt_error_message_redirect($location) {
+  remove_filter('redirect_post_location', __FILTER__, '99');
+  return add_query_arg('excerpt_required', 1, $location);
+}
+function excerpt_admin_notice() {
+  if (!isset($_GET['excerpt_required'])) return;
+  switch (absint($_GET['excerpt_required'])) {
+    case 1:
+      $message = 'Per la pubblicazione di un post è necessario inserire il riassunto';
+      break;
+    default:
+      $message = 'Errore inaspettato';
+  }
+  echo '<div id="notice" class="error"><p>' . $message . '</p></div>';
+}
+add_action('admin_notices', 'excerpt_admin_notice');
