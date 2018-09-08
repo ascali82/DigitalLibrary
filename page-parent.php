@@ -56,7 +56,7 @@ if ( $parent->have_posts() ) : ?>
 <!--Panel-->
 <div class="card col-6">
     <div class="card-body">
-         <p class="card-text"><?php echo get_excerpt(280); ?></p>
+         <p class="card-text"><?php echo the_excerpt(); ?></p>
     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="btn btn-primary"><h5 class="card-title"><?php the_title(); ?></h5></a>
     </div>
 </div>
