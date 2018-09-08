@@ -70,5 +70,8 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
  */
 
 // Registrazione della classe wp-bootstrap-navwalker per la customizzazione del menu principale
-require_once('inc/wp-bootstrap-navwalker.php')
+require_once('inc/wp-bootstrap-navwalker.php');
+    
+// Funzioni supplementari
+require get_template_directory() . '/inc/template-functions.php';
 ?>
