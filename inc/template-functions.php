@@ -131,3 +131,9 @@ function remove_category( $string, $type )
 }
  
 add_filter( 'user_trailingslashit', 'remove_category', 100, 2);
+
+    // Sistema la paginazione in Bacheca
+function my_pagination_rewrite() {
+    add_rewrite_rule('bacheca/page/?([0-9]{1,})/?$', 'index.php?category_name=bacheca&paged=$matches[1]', 'top');
+}
+add_action('init', 'my_pagination_rewrite');

@@ -60,10 +60,9 @@ function theme_enqueue_scripts() {
         wp_enqueue_script( 'Bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '1.0.0', true );
         // MDB
         wp_enqueue_script( 'MDB', get_template_directory_uri() . '/js/mdb.min.js', array(), '1.0.0', true );
-
+ 
         }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
-
 
 /**
  * Caricamento file esterni
@@ -74,4 +73,7 @@ require_once('inc/wp-bootstrap-navwalker.php');
     
 // Funzioni supplementari
 require get_template_directory() . '/inc/template-functions.php';
+
+// Pagination
+require_once('inc/pagination.inc.php');
 ?>

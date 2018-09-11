@@ -40,14 +40,14 @@ get_header();
                                 the_post();
                                 get_template_part( 'template-parts/content', get_post_type() );
                             endwhile;
-                            the_posts_navigation();
+                            //the_posts_navigation();
                         else :
                             get_template_part( 'template-parts/content', 'none' );
                         endif;
                         ?>                      
                                     </div>
                                     <!-- Card deck -->
-        
+        <?php mdb_pagination(); ?>
                                 </div>       
                             </article><!-- #post-<?php the_ID(); ?> -->     
                             
