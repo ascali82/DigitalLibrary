@@ -12,7 +12,7 @@ get_header();
                     <div class="jumbotron text-center mdb-color lighten-2 white-text z-depth-2 col-12">
 
                         <!--Title-->
-                        <?php the_title( '<h1 class="card-title h2-responsive mt-2 font-bold entry-title"><strong>', '</strong></h1>' ); ?>
+                        <?php the_title( '<h1 class="card-title h1-responsive mt-2 font-bold entry-title"><strong>', '</strong></h1>' ); ?>
                         <hr class="my-4 rgba-white-light">
                         <!--Subtitle-->
                         <?php
