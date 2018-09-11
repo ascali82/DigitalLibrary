@@ -95,3 +95,39 @@ function excerpt_admin_notice() {
   echo '<div id="notice" class="error"><p>' . $message . '</p></div>';
 }
 add_action('admin_notices', 'excerpt_admin_notice');
+
+// Funzioni relative alla Bacheca
+
+    // Rimuove il box per l'aggiunta di nuove categorie nella finestra di creazione di post
+add_action( 'add_meta_boxes', 'isa_remove_categories_meta_box' );
+function isa_remove_categories_meta_box() {
+     
+    remove_meta_box( 'categorydiv', 'post', 'side' );// remove the Categories box
+     
+    // you can remove more boxes here
+    // for example...
+    //  remove_meta_box( 'formatdiv', 'post', 'side' ); // remove the Format box
+    //  remove_meta_box( 'tagsdiv-post_tag', 'post', 'side' );// remove the Tags box
+  
+}
+    
+    // Modifica la categoria Uncategorized in Bacheca
+// Uncategorized ID is always 1
+wp_update_term(1, 'category', array(
+  'name' => 'Bacheca',
+  'slug' => 'Bacheca', 
+  'description' => 'Blog post collector'
+));
+
+    // Rimuove la base URL delle categorie nel permalink
+function remove_category( $string, $type )
+{ 
+        if ( $type != 'single' && $type == 'category' && ( strpos( $string, 'category' ) !== false ) )
+        {
+            $url_without_category = str_replace( "/category/", "/", $string );
+            return trailingslashit( $url_without_category );
+        }
+    return $string;
+}
+ 
+add_filter( 'user_trailingslashit', 'remove_category', 100, 2);
