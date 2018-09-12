@@ -53,13 +53,7 @@ get_header();
                             
                         </main><!-- #main -->
                     </div><!-- #primary -->                            
-                            
-                    <aside id="secondary" class="widget-area  col-12 col-lg-3">
-
-                        <?php dynamic_sidebar( 'sidebar-1' ); ?>
-                        
-                    </aside><!-- #secondary -->
-
+<?php get_sidebar(); ?>
                 </div><!-- #wrapper -->
 <?php
 get_footer(); 
