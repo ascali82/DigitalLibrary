@@ -23,9 +23,7 @@ get_header();
                                 
                                 <div class="entry-content">           
  
-                                    <!-- Card deck -->
                                     <div id="news-container" class="d-inline-flex flex-wrap">
-
                         <?php
                         if ( have_posts() ) :
                             if ( is_home() && ! is_front_page() ) :
@@ -38,7 +36,7 @@ get_header();
                             /* Start the Loop */
                             while ( have_posts() ) :
                                 the_post();
-                                get_template_part( 'template-parts/content', get_post_type() );
+                                get_template_part( 'template-parts/content', 'bacheca' );
                             endwhile;
                             //the_posts_navigation();
                         else :
@@ -46,7 +44,7 @@ get_header();
                         endif;
                         ?>                      
                                     </div>
-                                    <!-- Card deck -->
+
         <?php mdb_pagination(); ?>
                                 </div>       
                             </article><!-- #post-<?php the_ID(); ?> -->     

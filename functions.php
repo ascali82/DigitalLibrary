@@ -68,6 +68,9 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
  * Caricamento file esterni
  */
 
+// Custom template tags per questo tema
+require get_template_directory() . '/inc/template-tags.php';
+
 // Registrazione della classe wp-bootstrap-navwalker per la customizzazione del menu principale
 require_once('inc/wp-bootstrap-navwalker.php');
     
