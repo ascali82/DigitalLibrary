@@ -79,3 +79,6 @@
             </header><!-- #masthead -->
 
             <div id="content" class="site-content container my-2">
+                <!-- start breadcrumbs -->
+<?php dimox_breadcrumbs(); ?>
+<!-- end breadcrumbs -->
