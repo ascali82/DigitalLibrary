@@ -29,24 +29,31 @@
 
             <header id="masthead" class="site-header">
                 
-                <div class="site-branding container">
+                                <div class="site-branding container">
+<div class="jumbotron text-center site-branding">
                     <?php
                     the_custom_logo();
-                    if ( is_front_page() && is_home() ) :
+                    if ( is_front_page() ) :
                         ?>
-                        <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                        <h1 class="site-title card-title h2-responsive mt-2"><strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></strong></h1>
                         <?php
                     else :
                         ?>
-                        <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+                        <p class="site-title blue-text mb-4 font-bold"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
                         <?php
                     endif;
                     $_dl_description = get_bloginfo( 'description', 'display' );
                     if ( $_dl_description || is_customize_preview() ) :
                         ?>
-                        <p class="site-description"><?php echo $_dl_description; /* WPCS: xss ok. */ ?></p>
+        <hr class="my-4">
+    <div class="d-flex justify-content-center">
+                        <p class="site-description card-text" style="max-width: 43rem;"><?php echo $_dl_description; /* WPCS: xss ok. */ ?></p>
+   </div>     
                     <?php endif; ?>
-                </div><!-- .site-branding -->
+
+</div>
+<!--Jumbotron-->
+</div><!-- .site-branding -->
 
                 <nav id="site-navigation" class="main-navigation navbar navbar-expand-md" role="navigation">
                     
