@@ -17,14 +17,15 @@ get_header();
                         while ( have_posts() ) :
                             the_post();
                             get_template_part( 'template-parts/content', get_post_type() );
-                            the_post_navigation();
+                            the_post_navigation(array(
+                                'next_text' => '<div class="float-right">%title<i class="fas fa-angle-double-right"></i></div>',
+                                'prev_text' => '<div class="float-left"><i class="fas fa-angle-double-left"></i> %title  </div>',));
                             // If comments are open or we have at least one comment, load up the comment template.
-                            if ( comments_open() || get_comments_number() ) :
-                                comments_template();
-                            endif;
+ //                           if ( comments_open() || get_comments_number() ) :
+   //                             comments_template();
+     //                       endif;
                         endwhile; // End of the loop.
                         ?>
-
                         </main><!-- #main -->
                     </div><!-- #primary -->
     

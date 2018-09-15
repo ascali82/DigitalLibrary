@@ -2,8 +2,10 @@
 Theme Name: Digital Library
 Theme URI: https://github.com/ascali82/DigitalLibrary
 Description: Wordpress Theme set to host and implement a digital library. Based on _s, Bootstrap 4 and MDB.
-Version: 1.0.20
+Version: 1.0.21
 Author: Alessandro Scali
 Author URI: https://github.com/ascali82/
 Text Domain: _dl
 */
+
+.screen-reader-text { display: none; }
