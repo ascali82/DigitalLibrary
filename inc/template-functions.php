@@ -138,6 +138,24 @@ function my_pagination_rewrite() {
 }
 add_action('init', 'my_pagination_rewrite');
 
+/**
+ * Rewrite set up, when theme activate i mean
+ */
+if (isset($_GET['activated']) && is_admin()) {
+    global $wp_rewrite;
+    $wp_rewrite->set_permalink_structure('/%category%/%postname%/');
+    $wp_rewrite->flush_rules();
+}
+
+/**
+* Redirect to Permalink setting Page.
+* Otherwise Redirect rule will not work Properly.
+*/
+function redirect_to_permalink() {
+
+    wp_redirect('options-permalink.php');
+}
+add_action( 'after_switch_theme', 'redirect_to_permalink' );
 
 // Register Custom Taxonomy for versioning
 function version_taxonomy() {
