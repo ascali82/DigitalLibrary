@@ -15,11 +15,13 @@
                 
                 <!-- Footer Links -->
                 <div class="container text-center text-md-left">
+                              
                     <!-- Grid row-->
+<?php if ( get_the_author_meta('facebook', 1 ) || get_the_author_meta('twitter', 1 ) || get_the_author_meta('google+', 1 ) || get_the_author_meta('instagram', 1 ) || get_the_author_meta('youtube', 1 ) || get_the_author_meta('linkedin', 1 ) || get_the_author_meta('tumblr', 1 ) || get_the_author_meta('skype', 1 ) ) :  ?>                    
                     <div class="row py-4 d-flex align-items-center">
                     <!-- Grid column -->
           <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-            <h6 class="mb-0">Get connected with us on social networks!</h6>
+            <h6 class="mb-0">Seguici:</h6>
           </div>
           <!-- Grid column -->
 
@@ -27,31 +29,32 @@
           <div class="col-md-6 col-lg-7 text-center text-md-right">
 
             <!-- Facebook -->
-            <a class="fb-ic">
-              <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            <?php if ( get_the_author_meta('facebook', 1 ) ) :  ?>
+              <a href="<?php the_author_meta('facebook', 1); ?>" target="_blank" title="Seguici su Facebook">
+              <i class="fab fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
             </a>
+            <?php endif; ?>
             <!-- Twitter -->
-            <a class="tw-ic">
-              <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            <?php if ( get_the_author_meta('twitter', 1 ) ) :  ?>
+              <a href="<?php the_author_meta('twitter', 1); ?>" target="_blank" title="Seguici su Twitter">
+              <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
             </a>
+            <?php endif; ?>
             <!-- Google +-->
-            <a class="gplus-ic">
-              <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            <?php if ( get_the_author_meta('google+', 1 ) ) :  ?>
+              <a href="<?php the_author_meta('google+', 1); ?>" target="_blank" title="Seguici su GooglePlusr">
+              <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
             </a>
-            <!--Linkedin -->
-            <a class="li-ic">
-              <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            <?php endif; ?>
+            <!--Altri -->
+            <?php if ( get_the_author_meta('instagram', 1 ) || get_the_author_meta('youtube', 1 ) || get_the_author_meta('linkedin', 1 ) || get_the_author_meta('tumblr', 1 ) || get_the_author_meta('skype', 1 ) ) :  ?>
+              <a href="<?php echo site_url('/website/contattaci/'); ?>" title="Tutti i collegameti">
+              <i class="fas fa-grip-horizontal fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
             </a>
-            <!--Instagram-->
-            <a class="ins-ic">
-              <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
-            <!--Pinterest-->
-            <a class="pin-ic">
-              <i class="fa fa-pinterest fa-lg white-text fa-2x"> </i>
-            </a>
+            <?php endif; ?>
           </div>
         </div>
+<?php endif; ?>                    
         <!-- Grid column -->
 
 

@@ -55,7 +55,7 @@
 <!--Jumbotron-->
 </div><!-- .site-branding -->
 
-                <nav id="site-navigation" class="main-navigation navbar navbar-expand-md" role="navigation">
+                <nav id="site-navigation" class="main-navigation navbar navbar-expand-md navbar-dark bg-primary" role="navigation">
                     
                     <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->

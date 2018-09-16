@@ -315,3 +315,26 @@ function dimox_breadcrumbs(){
 		echo '</div>';
 	}
 } // end dimox_breadcrumbs()
+
+/**
+* Add additional contact methods to a WordPress user profile
+*/
+function modify_user_contact_methods( $user_contact ) {
+
+	// Add user contact methods
+    $user_contact['facebook'] = __( 'Facebook URL' );
+	$user_contact['twitter'] = __( 'Twitter Username' );
+    $user_contact['google+'] = __( 'GooglePlus URL' );
+    $user_contact['instagram'] = __( 'Instagram' );
+    $user_contact['youtube'] = __( 'Youtube' );
+    $user_contact['linkedin'] = __( 'Linkedin' );
+    $user_contact['tumblr'] = __( 'Tumblr' );
+    $user_contact['skype']   = __( 'Skype Username'   );    
+
+	// Remove user contact methods
+	unset( $user_contact['aim']    );
+	unset( $user_contact['jabber'] );
+
+	return $user_contact;
+}
+add_filter( 'user_contactmethods', 'modify_user_contact_methods' );
