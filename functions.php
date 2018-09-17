@@ -79,4 +79,7 @@ require get_template_directory() . '/inc/template-functions.php';
 
 // Pagination
 require_once('inc/pagination.inc.php');
+
+// Custom Post Type
+require get_template_directory() . '/inc/custom-post-types.php';
 ?>
