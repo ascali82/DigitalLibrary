@@ -82,4 +82,7 @@ require_once('inc/pagination.inc.php');
 
 // Custom Post Type
 require get_template_directory() . '/inc/custom-post-types.php';
+
+// Tassonomie
+require get_template_directory() . '/inc/taxonomies.inc.php';
 ?>
