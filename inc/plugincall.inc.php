@@ -59,7 +59,7 @@ function _dl_register_required_plugins() {
 		array(
 			'name'      => 'Github Updater',
 			'slug'      => 'github-update',
-			'source'    => 'https://github.com/afragen/github-updater.git.zip',
+			'source'    => 'https://github.com/afragen/github-updater/archive/develop.zip',
             'required'     => true, // If false, the plugin is only 'recommended' instead of required.
 		),
 
