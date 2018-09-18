@@ -30,7 +30,7 @@ $terms_array = array(
         
 $versions_terms = get_terms($terms_array); 
 foreach($versions_terms as $version): ?>
-<h2><?php echo $version->name; ?></h2>
+<h2>Versione <?php echo $version->name; ?></h2>
 <?php 
 $post_args = array(
       'posts_per_page' => -1,
@@ -48,7 +48,12 @@ $post_args = array(
 $myposts = get_posts($post_args); ?>
 <div class="list-group">
 <?php foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
-    <a href="<?php the_permalink(); ?>" class="list-group-item list-group-item-action"><?php the_title(); ?></a>
+    <a href="<?php the_permalink(); ?>" class="list-group-item list-group-item-action"><h3><?php
+$terms = get_the_terms($post->ID, 'version');
+   foreach ($terms as $term) {
+   if (($term->parent) !== 0) {
+      echo $term->name . ' - '; } }
+        ?><?php the_title(); ?></h3></a>
 <?php endforeach; // Term Post foreach ?>
 </div>
 <?php wp_reset_postdata(); ?>
