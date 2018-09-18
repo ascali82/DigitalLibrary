@@ -62,3 +62,60 @@ function custom_post_type_autori() {
 }
 
 add_action( 'init', 'custom_post_type_autori', 0 );
+
+// Register Custom Post Type Opere
+function custom_post_type_opere() {
+
+	$labels = array(
+		'name'                  => _x( 'Opere', 'Post Type General Name', '_dl' ),
+		'singular_name'         => _x( 'Opera', 'Post Type Singular Name', '_dl' ),
+		'menu_name'             => __( 'Opere', '_dl' ),
+		'name_admin_bar'        => __( 'Opere', '_dl' ),
+		'archives'              => __( 'Item Archives', '_dl' ),
+		'attributes'            => __( 'Item Attributes', '_dl' ),
+		'parent_item_colon'     => __( 'Parent Item:', '_dl' ),
+		'all_items'             => __( 'All Items', '_dl' ),
+		'add_new_item'          => __( 'Add New Item', '_dl' ),
+		'add_new'               => __( 'Add New', '_dl' ),
+		'new_item'              => __( 'New Item', '_dl' ),
+		'edit_item'             => __( 'Edit Item', '_dl' ),
+		'update_item'           => __( 'Update Item', '_dl' ),
+		'view_item'             => __( 'View Item', '_dl' ),
+		'view_items'            => __( 'View Items', '_dl' ),
+		'search_items'          => __( 'Search Item', '_dl' ),
+		'not_found'             => __( 'Not found', '_dl' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', '_dl' ),
+		'featured_image'        => __( 'Featured Image', '_dl' ),
+		'set_featured_image'    => __( 'Set featured image', '_dl' ),
+		'remove_featured_image' => __( 'Remove featured image', '_dl' ),
+		'use_featured_image'    => __( 'Use as featured image', '_dl' ),
+		'insert_into_item'      => __( 'Insert into item', '_dl' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', '_dl' ),
+		'items_list'            => __( 'Items list', '_dl' ),
+		'items_list_navigation' => __( 'Items list navigation', '_dl' ),
+		'filter_items_list'     => __( 'Filter items list', '_dl' ),
+	);
+	$args = array(
+		'label'                 => __( 'Opera', '_dl' ),
+		'description'           => __( 'Lista delle opere caricate', '_dl' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'revisions', 'custom-fields', 'page-attributes' ),
+		'hierarchical'          => true,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 60,
+		'menu_icon'             => 'dashicons-book-alt',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+		'show_in_rest'          => true,
+	);
+	register_post_type( 'opere', $args );
+
+}
+add_action( 'init', 'custom_post_type_opere', 0 );
