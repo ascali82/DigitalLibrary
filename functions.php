@@ -85,4 +85,10 @@ require get_template_directory() . '/inc/custom-post-types.php';
 
 // Tassonomie
 require get_template_directory() . '/inc/taxonomies.inc.php';
+
+// Include the TGM_Plugin_Activation class.
+require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
+
+// Plugin da attivare
+require_once get_template_directory() . '/inc/plugincall.inc.php';
 ?>
