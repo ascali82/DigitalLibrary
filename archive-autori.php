@@ -14,25 +14,25 @@ get_header();
                         <main id="main" class="site-main">
                             
                             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                            <?php // if ( have_posts() ) : ?>
-                                <header class="entry-header">
-                                   <?php  //if (is_category()){
-                                echo single_cat_title( '<h1 class="entry-title">') . '</h1>';
-                         //   }?>
-                                </header><!-- .entry-header -->
+			<header class="page-header">
+				<?php
+				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				the_archive_description( '<div class="archive-description">', '</div>' );
+				?>
+			</header><!-- .page-header -->
                                 
                                 <div class="entry-content">           
  
 <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
   <thead>
     <tr>
-      <th class="th-sm">Name
+      <th class="th-sm">Nome
         <i class="fa fa-sort float-right" aria-hidden="true"></i>
       </th>
-      <th class="th-sm">Position
+      <th class="th-sm">Portale
         <i class="fa fa-sort float-right" aria-hidden="true"></i>
       </th>
-      <th class="th-sm">Office
+      <th class="th-sm">Periodo
         <i class="fa fa-sort float-right" aria-hidden="true"></i>
       </th>
       <th class="th-sm">Age

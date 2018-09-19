@@ -41,7 +41,7 @@ function custom_post_type_autori() {
 		'label'                 => __( 'Autore', '_dl' ),
 		'description'           => __( 'Lista degli autori caricati', '_dl' ),
 		'labels'                => $labels,
-		'supports'              => array( 'revisions', 'page-attributes' ),
+		'supports'              => array( 'revisions', 'page-attributes', 'title', 'custom-fields' ),
 		'hierarchical'          => false,
 		'public'                => true, // Controls how the type is visible to authors (show_in_nav_menus, show_ui) and readers (exclude_from_search, publicly_queryable). 'true' - Implies exclude_from_search: false, publicly_queryable: true, show_in_nav_menus: true, and show_ui:true. The built-in types attachment, page, and post are similar to this.
 		'show_ui'               => true,
